@@ -6,6 +6,10 @@ let monacoLoaded: Promise<void>;
 
 const loadedThemes = new Set<string>();
 
+export async function addJsonTheme(name: string, t: object) {
+  monaco.editor.defineTheme(name, t);
+}
+
 export async function addThemeIfNeeded(t: string) {
   if (!t || !t.trim() || loadedThemes.has(t)) return;
 
